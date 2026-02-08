@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T20 World Cup 2026</title>
+
+<style>
+/* ===== BASIC ===== */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0b1220;
+  color: #fff;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(135deg, #020617, #0f172a);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  position: relative;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #22c55e, #38bdf8);
+}
+
+/* ===== HERO ===== */
+.hero {
+  padding: 30px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #020617, #1e293b);
+}
+
+.hero h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.hero p {
+  margin: 0;
+  font-size: 16px;
+  color: #94a3b8;
+}
+
+/* ===== PLAYER ===== */
+.embed-box {
+  width: 100%;
+  max-width: 1000px;
+  margin: 25px auto;
+  background: #000;
+  border-radius: 14px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.embed-box iframe {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border: none;
+}
+
+.click-block {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  background: transparent;
+}
+
+.open-btn {
+  display: inline-block;
+  margin: 18px auto 0;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #000;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ===== SECTION ===== */
+.section {
+  padding: 35px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section h2 {
+  margin-bottom: 15px;
+}
+
+/* ===== TABLE ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #111827;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #334155;
+  text-align: center;
+}
+
+th {
+  background: #1e293b;
+}
+
+td {
+  color: #cbd5f5;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #020617;
+  padding: 35px 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+footer h3 {
+  margin:0 0 8px;
+  font-weight:600;
+}
+
+footer p {
+  margin:0 0 12px;
+  color:#94a3b8;
+  font-size:14px;
+}
+
+footer p:last-child {
+  margin-top:14px;
+  color:#475569;
+  font-size:12px;
+}
+
+/* ===== TOAST ===== */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #020617;
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.35s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast span {
+  font-size: 18px;
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 769px) {
+  .embed-box iframe {
+    top: -112px;
+    height: calc(100% + 108px);
+  }
+  .click-block {
+    top:0;
+    height:54px;
+  }
+}
+
+/* ===== MOBILE (UNCHANGED) ===== */
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 22px;
+  }
+  .embed-box {
+    border-radius: 10px;
+  }
+  .embed-box iframe {
+    top: -120px;
+    height: calc(100% + 120px);
+  }
+  .click-block {
+    top: 0;
+    height: 45px;
+  }
+  th, td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+/* ===== BASIC RESET ===== */
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(135deg, #020617, #0f172a);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  position: relative;
+}
+
+/* Header Title */
+.animated-title {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #22c55e, #3b82f6, #facc15, #f43f5e);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s ease infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== NAV LINKS (DESKTOP) ===== */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #22c55e;
+}
+
+/* ===== HAMBURGER BUTTON ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* ===== MOBILE MENU ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #0f172a;
+    padding: 15px;
+    width: 150px;
+    border-radius: 10px;
+    gap: 12px;
+    z-index: 9999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    background: #111827;
+    padding: 10px 12px;
+    border-radius: 6px;
+  }
+
+  .nav-links a:hover {
+    background: #22c55e;
+    color: #000;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <h1 class="animated-title">Playzya</h1>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</header>
+
+<section class="hero">
+  <h2>Live Match Streaming</h2>
+  <p>ICC Men's T20 World Cup 2026 – India & Sri Lanka</p>
+</section>
+
+<section id="live" class="section">
+  <h2 style="text-align:center;">Now Playing</h2>
+
+  <div class="embed-box">
+    <div class="click-block"></div>
+    <iframe
+      src="https://tamashaweb.com/icc-mens-t20-world-cup-2026-c"
+      scrolling="no"
+      allowfullscreen
+      allow="autoplay; fullscreen">
+    </iframe>
+  </div>
+
+  <div style="text-align:center; margin-top:15px;">
+    <button class="open-btn" onclick="sharePage()">
+      Share with your friends
+    </button>
+  </div>
+
+</section>
+
+<!-- ===== ADSTERA NATIVE SPACE ===== -->
+<section class="section">
+  <div style="max-width:1000px;margin:30px auto;text-align:center;">
+    <!-- Adstera Native Code Here -->
+  </div>
+</section>
+
+<section id="schedule" class="section">
+  <h2>Match Schedule</h2>
+
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Match</th>
+      <th>Venue</th>
+    </tr>
+    <tr>
+      <td>7 Feb 2026</td>
+      <td>Pakistan vs Netherlands</td>
+      <td>Colombo</td>
+    </tr>
+    <tr>
+      <td>8 Feb 2026</td>
+      <td>West Indies vs Scotland</td>
+      <td>Kandy</td>
+    </tr>
+    <tr>
+      <td>15 Feb 2026</td>
+      <td>India vs Pakistan</td>
+      <td>Colombo</td>
+    </tr>
+  </table>
+</section>
+<!-- ===== AD ABOVE FOOTER ===== -->
+<section class="section">
+  <div style="max-width:1000px;margin:30px auto;text-align:center;">
+    <!-- Adstera Native / Banner Code Here -->
+    <script type="text/javascript" src="https://ads.adstera.com/your_unique_code.js"></script>
+  </div>
+</section>
+
+
+<footer>
+  <div style="max-width:1100px; margin:auto;">
+    <h3>ICC Men's T20 World Cup 2026</h3>
+    <p>Live cricket streaming experience for fans worldwide</p>
+    <p>Disclaimer: This is an unofficial fan-made website. All streaming content is embedded from third-party sources. We do not host or upload any media.</p>
+    <p>© 2026 • All Rights Reserved</p>
+    <div class="ad-section" style="margin-top:20px;">
+      <!-- Footer Ad -->
+      <script type="text/javascript" src="https://ads.adstera.com/your_unique_code.js"></script>
+    </div>
+  </div>
+</footer>
+
+
+<!-- TOAST -->
+<div id="toast" class="toast">
+  <span>✅</span>
+  <div>Link copied! Share with your friends</div>
+</div>
+
+<script>
+function sharePage() {
+  const url = window.location.href;
+  const toast = document.getElementById("toast");
+
+  navigator.clipboard.writeText(url).then(() => {
+    toast.classList.add("show");
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2800);
+  }).catch(() => {
+    window.prompt("Copy this link:", url);
+  });
+}
+</script>
+<script>
+function toggleMenu() {
+  document.querySelector('.nav-links').classList.toggle('show');
+}
+</script>
+</body>
+</html>

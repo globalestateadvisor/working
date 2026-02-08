@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Playzya</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif;}
+html,body{background:#0b1220;color:#fff;min-height:100%;display:flex;flex-direction:column;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+
+
+/* HERO */
+.hero{text-align:center;padding:40px 20px 30px;background:linear-gradient(135deg,#020617,#1e293b);}
+.hero h2{font-size:2rem;color:#22c55e;margin-bottom:12px;}
+.hero p{font-size:1rem;color:#cbd5e1;line-height:1.6;max-width:800px;margin:auto;}
+@media(min-width:768px){.hero h2{font-size:2.5rem;} .hero p{font-size:1.1rem;}}
+@media(max-width:480px){.hero h2{font-size:1.8rem;} .hero p{font-size:0.95rem;}}
+
+/* MAIN CONTACT */
+main{flex:1;display:flex;flex-direction:column;align-items:center;width:100%;}
+.contact-section{max-width:600px;margin:40px auto;padding:0 20px;display:flex;flex-direction:column;gap:15px;width:100%;}
+.contact-section input,.contact-section textarea{padding:12px;font-size:16px;border-radius:6px;border:1px solid #475569;background:#0f172a;color:#fff;width:100%;}
+.contact-section input::placeholder,.contact-section textarea::placeholder{color:#94a3b8;}
+.contact-section button{padding:12px;font-size:18px;font-weight:600;border:none;border-radius:6px;background:#22c55e;color:#000;cursor:pointer;transition:0.3s;}
+.contact-section button:hover{opacity:0.9;}
+
+/* SUCCESS POPUP */
+#successPopup{position:fixed;top:20px;right:20px;background:#22c55e;color:#fff;padding:15px 20px;border-radius:8px;display:none;align-items:center;gap:10px;box-shadow:0 5px 15px rgba(0,0,0,0.5);}
+#successPopup svg{width:20px;height:20px;fill:#fff;}
+
+/* FOOTER */
+footer{background:#020617;padding:40px 20px 30px;text-align:center;flex-shrink:0;}
+footer h3{margin:0 0 10px;font-weight:600;font-size:20px;}
+footer p{margin:0 0 10px;color:#94a3b8;font-size:14px;line-height:1.6;}
+footer p:last-child{margin-top:14px;color:#475569;font-size:12px;}
+/* ===== BASIC RESET ===== */
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(135deg, #020617, #0f172a);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  position: relative;
+}
+
+/* Header Title */
+.animated-title {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #22c55e, #3b82f6, #facc15, #f43f5e);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s ease infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== NAV LINKS (DESKTOP) ===== */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #22c55e;
+}
+
+/* ===== HAMBURGER BUTTON ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* ===== MOBILE MENU ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #0f172a;
+    padding: 15px;
+    width: 150px;
+    border-radius: 10px;
+    gap: 12px;
+    z-index: 9999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    background: #111827;
+    padding: 10px 12px;
+    border-radius: 6px;
+  }
+
+  .nav-links a:hover {
+    background: #22c55e;
+    color: #000;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header">
+  <h1 class="animated-title">Playzya</h1>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</header>
+<section class="hero">
+  <h2>Contact Us</h2>
+  <p>Fill out the form below and we’ll respond promptly.</p>
+</section>
+
+<main>
+  <section class="contact-section">
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="your@email.com">
+    <input type="text" id="subject" placeholder="Subject">
+    <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+    <button onclick="sendForm()">Send Message</button>
+  </section>
+</main>
+
+<div id="successPopup">
+  <svg viewBox="0 0 24 24"><path d="M9 16.17l-3.88-3.88-1.42 1.41L9 19 20 8l-1.41-1.41z"/></svg>
+  Message sent successfully
+</div>
+
+<footer>
+  <h3>ICC Men's T20 World Cup 2026</h3>
+  <p>Live cricket streaming experience for fans worldwide</p>
+  <p>Disclaimer: This is an unofficial fan-made website. All streaming content is embedded from third-party sources. We do not host or upload any media.</p>
+  <p>© 2026 • All Rights Reserved</p>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector('.nav-links').classList.toggle('show');}
+function sendForm(){
+  const name=document.getElementById('name').value;
+  const email=document.getElementById('email').value;
+  const subject=document.getElementById('subject').value;
+  const message=document.getElementById('message').value;
+  if(!name||!email||!subject||!message){alert("Please fill all fields");return;}
+  
+  console.log({name,email,subject,message});
+  
+  const popup=document.getElementById('successPopup');
+  popup.style.display='flex';
+  setTimeout(()=>{popup.style.display='none';},3000);
+
+  document.getElementById('name').value='';
+  document.getElementById('email').value='';
+  document.getElementById('subject').value='';
+  document.getElementById('message').value='';
+}
+</script>
+</body>
+</html>

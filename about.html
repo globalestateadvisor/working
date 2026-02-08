@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Playzya</title>
+<style>
+/* ===== BASIC ===== */
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Segoe UI",Arial,sans-serif;}
+html,body{background:#0b1220;color:#fff;min-height:100%;display:flex;flex-direction:column;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+
+
+/* ===== HERO ===== */
+.hero{position:relative;text-align:center;padding:40px 20px 30px;background:linear-gradient(135deg,#020617,#1e293b);}
+.pro-title{display:inline-block;font-size:2.2rem;font-weight:900;text-transform:uppercase;letter-spacing:1.2px;background:linear-gradient(270deg,#22c55e,#3b82f6,#facc15,#f43f5e,#22c55e);background-size:1000% 1000%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;position:relative;animation:gradientMove 10s ease infinite, bounceTitle 2.5s ease infinite;margin:15px 0;}
+.pro-title::after{content:'';position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg, rgba(255,255,255,0)0%, rgba(255,255,255,0.5)50%, rgba(255,255,255,0)100%);transform:skewX(-25deg);animation:shine 3s infinite;}
+@keyframes shine{0%{left:-75%;}50%{left:125%;}100%{left:-75%;}}
+@keyframes bounceTitle{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+@media(min-width:768px){.pro-title{font-size:3rem;}} @media(max-width:480px){.pro-title{font-size:1.8rem;}}
+
+/* ===== MAIN ===== */
+main{flex:1;display:flex;flex-direction:column;align-items:center;width:100%;}
+.about-section{max-width:900px;margin:40px auto;padding:0 20px;line-height:1.7;font-size:18px;}
+.about-section h2{font-size:32px;text-align:center;color:#22c55e;margin-bottom:12px;}
+.about-section p{margin-bottom:15px;color:#cbd5e1;}
+.feature-list{margin-top:20px;list-style:disc;padding-left:20px;}
+.feature-list li{margin:10px 0;font-weight:500;}
+
+/* ===== FOOTER ===== */
+footer{background:#020617;padding:40px 20px 30px;text-align:center;flex-shrink:0;}
+footer h3{margin:0 0 10px;font-weight:600;font-size:20px;}
+footer p{margin:0 0 10px;color:#94a3b8;font-size:14px;line-height:1.6;}
+footer p:last-child{margin-top:14px;color:#475569;font-size:12px;}
+
+/* ===== FORCE ISOLATE ANIMATION ===== */
+.hero, .pro-title{transform:none !important;}
+/* ===== BASIC RESET ===== */
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(135deg, #020617, #0f172a);
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1e293b;
+  position: relative;
+}
+
+/* Header Title */
+.animated-title {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #22c55e, #3b82f6, #facc15, #f43f5e);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s ease infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== NAV LINKS (DESKTOP) ===== */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #22c55e;
+}
+
+/* ===== HAMBURGER BUTTON ===== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger div {
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* ===== MOBILE MENU ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #0f172a;
+    padding: 15px;
+    width: 150px;
+    border-radius: 10px;
+    gap: 12px;
+    z-index: 9999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    background: #111827;
+    padding: 10px 12px;
+    border-radius: 6px;
+  }
+
+  .nav-links a:hover {
+    background: #22c55e;
+    color: #000;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="header">
+  <h1 class="animated-title">Playzya</h1>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</header>
+
+<section class="hero">
+  <h2 class="pro-title">About Playzya</h2>
+  <p>Your ultimate destination to watch all T20 World Cup 2026 matches live with smooth streaming and full mobile + desktop support.</p>
+</section>
+
+<main>
+  <section class="about-section">
+    <h2>Our Mission</h2>
+    <p>Playzya provides cricket fans with a premium streaming experience. We focus on speed, reliability, and high-quality live coverage of every T20 World Cup match.</p>
+    <ul class="feature-list">
+      <li>Live streaming of all matches</li>
+      <li>Mobile and desktop friendly</li>
+      <li>Intuitive design and fast loading</li>
+      <li>Dedicated support for cricket enthusiasts</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <h3>ICC Men's T20 World Cup 2026</h3>
+  <p>Live cricket streaming experience for fans worldwide</p>
+  <p>Disclaimer: This is an unofficial fan-made website. All streaming content is embedded from third-party sources. We do not host or upload any media.</p>
+  <p>© 2026 • All Rights Reserved</p>
+</footer>
+
+<script>
+function toggleMenu(){document.querySelector('.nav-links').classList.toggle('show');}
+</script>
+</body>
+</html>
