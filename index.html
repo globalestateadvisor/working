@@ -525,7 +525,36 @@
 /* Responsive adjustments */
 @media (min-width: 768px) { .pro-title { font-size: 3rem; } }
 @media (max-width: 480px) { .pro-title { font-size: 1.8rem; } }
+/* ===== FORCE FOOTER FULL WIDTH ===== */
+footer {
+  width: 100vw !important;        /* full viewport width */
+  max-width: 100% !important;     /* ignore parent container */
+  padding: 40px 20px !important;  /* maintain top/bottom padding */
+  box-sizing: border-box !important;
+  margin: 0 !important;           /* remove any auto margin */
+  background: #020617 !important; /* keep theme */
+}
 
+footer > div {
+  max-width: 1200px;    /* content max width */
+  margin: 0 auto;       /* center content */
+  padding: 0 20px;      /* optional padding for sides */
+}
+
+/* Footer ad full width */
+footer .ad-section {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 20px 0 !important;
+  text-align: center;
+}
+
+/* Footer text alignment fix */
+footer p, footer h3 {
+  text-align: center !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
 </style>
 </head>
 <body>
@@ -607,7 +636,29 @@
 <script async="async" data-cfasync="false" src="https://breachuptown.com/97f254f4b3b1e7432fde9a34505131ea/invoke.js"></script>
 <div id="container-97f254f4b3b1e7432fde9a34505131ea"></div>
   </div>
+<style>
+.responsive-ad {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 20px auto;
+  text-align: center;
+}
+</style>
 
+<div class="responsive-ad">
+  <small style="color:#94a3b8; display:block; margin-bottom:6px;">Advertisement</small>
+  <script>
+    atOptions = {
+      'key' : '41d8c415673e6763a34eb8ec3927fed8',
+      'format' : 'iframe',
+      'height' : 250,
+      'width' : 300,
+      'params' : {}
+    };
+  </script>
+  <script src="https://breachuptown.com/41d8c415673e6763a34eb8ec3927fed8/invoke.js"></script>
+</div>
 <!-- FOOTER -->
 <footer>
   <div style="max-width:1100px; margin:auto;">
@@ -615,7 +666,6 @@
     <p>Live cricket streaming experience for fans worldwide</p>
     <p>Disclaimer: This is an unofficial fan-made website. All streaming content is embedded from third-party sources. We do not host or upload any media.</p>
     <p>© 2026 • All Rights Reserved</p>
-
     </div>
   </div>
 </footer>
